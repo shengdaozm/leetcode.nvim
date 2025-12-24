@@ -203,6 +203,12 @@ function cmd.set_menu_page(page)
     _Lc_state.menu:set_page(page)
 end
 
+function cmd.contest_problems(contest)
+    _Lc_state.contest = contest
+    package.loaded["leetcode-ui.group.page.contest_problems"] = nil
+    cmd.set_menu_page("contest_problems")
+end
+
 function cmd.start_user_session() --
     cmd.set_menu_page("menu")
     config.stats.update()

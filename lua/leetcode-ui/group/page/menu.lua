@@ -51,10 +51,20 @@ local cache = Button("Cache", {
     expandable = true,
 })
 
+local contest = Button("Contest", {
+    icon = "",
+    sc = "t",
+    on_press = function()
+        cmd.set_menu_page("contests")
+    end,
+    expandable = true,
+})
+
 local exit = ExitButton()
 
 page:insert(Buttons({
     problems,
+    contest,
     statistics,
     cookie,
     cache,

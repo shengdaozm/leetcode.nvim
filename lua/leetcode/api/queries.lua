@@ -179,4 +179,36 @@ queries.session_progress = [[
         }
     ]]
 
+queries.contest_list = [[
+        query contestList {
+            allContests {
+                title
+                titleSlug: titleSlug
+                startTime: startTime
+                duration
+                originStartTime: originStartTime
+                isVirtual: isVirtual
+            }
+        }
+    ]]
+
+queries.contest_problems = [[
+        query contest($titleSlug: String!) {
+            contest(titleSlug: $titleSlug) {
+                id
+                title
+                startTime: startTime
+                questions: containsQuestions {
+                    id
+                    question_id: questionId
+                    question_frontend_id: questionFrontendId
+                    title
+                    title_slug: titleSlug
+                    difficulty
+                    status
+                }
+            }
+        }
+    ]]
+
 return queries
